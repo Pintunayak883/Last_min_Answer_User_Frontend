@@ -28,10 +28,14 @@ jobs:
 
             cd /var/www/Last_min_Answer_User_Frontend
 
-            git reset --hard
-            git pull origin main
+            git fetch origin
+            git reset --hard origin/main
 
+            rm -rf .next node_modules
             npm install
             npm run build
+
+            pm2 restart user-frontend
+            pm2 save
 
           EOF
