@@ -13,7 +13,6 @@ import {
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Home",
   description:
     "Access syllabus, question papers, and notes for your university courses. Fast, free, and mobile-friendly exam preparation.",
 };

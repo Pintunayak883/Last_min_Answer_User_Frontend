@@ -81,7 +81,11 @@ export function TermSelector({
         >
           {terms.map((term) => (
             <option key={term.id} value={term.id}>
-              {term.label} ({schemeType === "YEAR" ? `Year ${term.value}` : `Sem ${term.value}`})
+              {term.label} (
+              {schemeType === "YEAR"
+                ? `Year ${term.value}`
+                : `Sem ${term.value}`}
+              )
             </option>
           ))}
         </select>
