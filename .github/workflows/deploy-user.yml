@@ -22,11 +22,11 @@ jobs:
           ssh -o StrictHostKeyChecking=no \
           ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
 
-            # Load NVM (non-interactive shell fix)
+            # Load NVM
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-            cd /var/www/One_Answers_User_Frontend
+            cd /var/www/Last_min_Answer_User_Frontend
 
             git reset --hard
             git pull origin main
