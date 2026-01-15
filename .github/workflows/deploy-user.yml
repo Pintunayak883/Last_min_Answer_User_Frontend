@@ -17,22 +17,21 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Build & Deploy User Frontend
+            - name: Build & Deploy User Frontend
         run: |
           ssh -o StrictHostKeyChecking=no \
           ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
 
-            # Load NVM
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
             cd /var/www/Last_min_Answer_User_Frontend
 
             git reset --hard
-            git clean -fd
             git pull origin main
 
             npm install
             npm run build
 
           EOF
+
