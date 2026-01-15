@@ -33,10 +33,10 @@ export default function UniversitiesPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+        <h1 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">
           Universities
         </h1>
-        <p className="text-slate-600">
+        <p className="text-slate-600 dark:text-slate-300">
           Select your university to browse courses and study materials
         </p>
       </div>
@@ -82,21 +82,24 @@ export default function UniversitiesPage() {
               <Card hoverable className="h-full">
                 <CardContent className="flex items-center justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-slate-900 mb-1 truncate">
+                    <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-1 truncate">
                       {university.name}
                     </h3>
                     {university.shortName && (
-                      <p className="text-sm text-slate-600 truncate">
+                      <p className="text-sm text-slate-600 dark:text-slate-300 truncate">
                         {university.shortName}
                       </p>
                     )}
                     {university.description && (
-                      <p className="text-sm text-slate-500 mt-2 line-clamp-2">
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
                         {university.description}
                       </p>
                     )}
                   </div>
-                  <ChevronRight className="text-slate-400 shrink-0" size={20} />
+                  <ChevronRight
+                    className="text-slate-400 dark:text-slate-500 shrink-0"
+                    size={20}
+                  />
                 </CardContent>
               </Card>
             </Link>

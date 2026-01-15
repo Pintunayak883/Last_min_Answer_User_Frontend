@@ -26,8 +26,8 @@ export function Header() {
             className="flex items-center gap-2 font-bold text-xl text-primary-600 dark:text-primary-400"
           >
             <GraduationCap size={28} />
-            <span className="hidden xs:inline">Last Min Answers</span>
-            <span className="xs:hidden">LMA</span>
+            <span className="hidden xs:inline">One Answers</span>
+            <span className="xs:hidden">OA</span>
           </Link>
 
           {/* Navigation */}

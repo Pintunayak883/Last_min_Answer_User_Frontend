@@ -65,7 +65,7 @@ export function CardFooter({ children, className }: CardFooterProps) {
   return (
     <div
       className={cn(
-        "px-4 py-3 bg-slate-50 border-t border-slate-100",
+        "px-4 py-3 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-700",
         className
       )}
     >

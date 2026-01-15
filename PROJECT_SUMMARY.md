@@ -2,7 +2,7 @@
 
 ## ✅ User Frontend - Complete & Production Ready
 
-Congratulations! Your mobile-first User Frontend for Last Min Answers is fully built and ready for deployment.
+Congratulations! Your mobile-first User Frontend for One Answers is fully built and ready for deployment.
 
 ---
 

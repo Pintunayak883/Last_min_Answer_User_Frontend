@@ -50,7 +50,7 @@ You should see:
 
 1. Open your web browser
 2. Navigate to: **http://localhost:3001**
-3. You should see the Last Min Answers home page!
+3. You should see the One Answers home page!
 
 ## 📱 Step 5: Test on Mobile
 

@@ -9,10 +9,10 @@ export default function NotFound() {
         <div className="mb-6 text-slate-400 flex justify-center">
           <FileQuestion size={64} strokeWidth={1.5} />
         </div>
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
           Page Not Found
         </h2>
-        <p className="text-slate-600 mb-6">
+        <p className="text-slate-600 dark:text-slate-300 mb-6">
           Sorry, we couldn't find the page you're looking for.
         </p>
         <Link href="/">

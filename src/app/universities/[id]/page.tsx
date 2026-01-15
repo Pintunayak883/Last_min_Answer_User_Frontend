@@ -74,16 +74,18 @@ export default function UniversityCoursesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
         {/* University Header */}
         <div className="mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+          <h1 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             {university.name}
           </h1>
           {university.shortName && (
-            <p className="text-lg text-slate-600 mb-2">
+            <p className="text-lg text-slate-600 dark:text-slate-300 mb-2">
               {university.shortName}
             </p>
           )}
           {university.description && (
-            <p className="text-slate-600">{university.description}</p>
+            <p className="text-slate-600 dark:text-slate-300">
+              {university.description}
+            </p>
           )}
         </div>
 
@@ -127,7 +129,7 @@ export default function UniversityCoursesPage() {
                   <CardContent>
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-slate-900 mb-1 line-clamp-2">
+                        <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-1 line-clamp-2">
                           {course.name}
                         </h3>
                         {course.code && (
@@ -137,19 +139,19 @@ export default function UniversityCoursesPage() {
                         )}
                       </div>
                       <ChevronRight
-                        className="text-slate-400 shrink-0"
+                        className="text-slate-400 dark:text-slate-500 shrink-0"
                         size={20}
                       />
                     </div>
 
                     {course.description && (
-                      <p className="text-sm text-slate-600 mb-3 line-clamp-2">
+                      <p className="text-sm text-slate-600 dark:text-slate-300 mb-3 line-clamp-2">
                         {course.description}
                       </p>
                     )}
 
                     {course.duration && (
-                      <div className="flex items-center gap-2 text-sm text-slate-500">
+                      <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
                         <Clock size={16} />
                         <span>{course.duration}</span>
                       </div>

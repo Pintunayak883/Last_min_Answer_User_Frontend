@@ -1,4 +1,4 @@
-# Last Min Answers - User Frontend
+# One Answers - User Frontend
 
 A mobile-first, production-ready education platform for students to browse and download study materials.
 

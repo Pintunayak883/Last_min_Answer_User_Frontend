@@ -16,10 +16,10 @@ export function Footer() {
               className="flex items-center gap-2 font-bold text-xl text-white mb-4"
             >
               <GraduationCap size={28} />
-              <span>Last Min Answers</span>
+              <span>One Answers</span>
             </Link>
             <p className="text-sm text-slate-400">
-              Your trusted portel for exam preparation. Access syllabus,
+              Your trusted portal for exam preparation. Access syllabus,
               question papers, and notes anytime, anywhere.
             </p>
           </div>
@@ -73,7 +73,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-slate-800 text-center text-sm text-slate-400">
-          <p>&copy; {currentYear} Last Min Answers. All rights reserved.</p>
+          <p>&copy; {currentYear} One Answers. All rights reserved.</p>
         </div>
       </div>
     </footer>

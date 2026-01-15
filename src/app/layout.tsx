@@ -1,16 +1,28 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Providers } from "@/components/providers/Providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  getSiteUrl,
+  SITE_NAME,
+} from "@/lib/seo";
 import "./globals.css";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: {
-    default: "Last Min Answers - Exam Preparation Made Easy",
-    template: "%s | Last Min Answers",
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Access syllabus, question papers, and notes for your university courses. Your trusted portel for exam preparation.",
+  description: DEFAULT_DESCRIPTION,
   keywords: [
     "exam preparation",
     "question papers",
@@ -20,15 +32,31 @@ export const metadata: Metadata = {
     "education",
     "study material",
   ],
-  authors: [{ name: "Last Min Answers" }],
+  authors: [{ name: SITE_NAME }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_SITE_URL,
-    siteName: "Last Min Answers",
-    title: "Last Min Answers - Exam Preparation Made Easy",
-    description:
-      "Access syllabus, question papers, and notes for your university courses.",
+    url: "/",
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: ["/og-image.svg"],
   },
   robots: {
     index: true,
@@ -40,11 +68,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
   },
 };
 

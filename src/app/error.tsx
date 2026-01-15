@@ -16,10 +16,10 @@ export default function Error({
         <div className="mb-6 text-red-500 flex justify-center">
           <AlertCircle size={64} strokeWidth={1.5} />
         </div>
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
           Something went wrong!
         </h2>
-        <p className="text-slate-600 mb-6">
+        <p className="text-slate-600 dark:text-slate-300 mb-6">
           We encountered an unexpected error. Please try again.
         </p>
         <Button onClick={reset} size="lg">

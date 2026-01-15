@@ -110,7 +110,7 @@ export default function CourseSubjectsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
         {/* Course Header */}
         <div className="mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+          <h1 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             {course.name}
           </h1>
           {course.code && (
@@ -118,7 +118,7 @@ export default function CourseSubjectsPage() {
               {course.code}
             </p>
           )}
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-500 dark:text-slate-400">
             {course.schemeType === "SEMESTER"
               ? "Semester-based course (1–8)"
               : "Year-based course (1–4)"}
@@ -201,7 +201,7 @@ export default function CourseSubjectsPage() {
                           <CardContent>
                             <div className="flex items-start justify-between gap-4 mb-3">
                               <div className="flex-1 min-w-0">
-                                <h3 className="font-semibold text-slate-900 mb-1 line-clamp-2">
+                                <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-1 line-clamp-2">
                                   {subject.name}
                                 </h3>
                                 {subject.code && (
@@ -211,18 +211,18 @@ export default function CourseSubjectsPage() {
                                 )}
                               </div>
                               <ChevronRight
-                                className="text-slate-400 shrink-0"
+                                className="text-slate-400 dark:text-slate-500 shrink-0"
                                 size={20}
                               />
                             </div>
 
                             {subject.description && (
-                              <p className="text-sm text-slate-600 mb-3 line-clamp-2">
+                              <p className="text-sm text-slate-600 dark:text-slate-300 mb-3 line-clamp-2">
                                 {subject.description}
                               </p>
                             )}
 
-                            <div className="flex items-center gap-4 text-sm text-slate-500">
+                            <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
                               {subject.credits && (
                                 <div className="flex items-center gap-1">
                                   <Award size={16} />
