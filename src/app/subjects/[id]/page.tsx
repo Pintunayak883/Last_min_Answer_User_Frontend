@@ -256,7 +256,7 @@ function SyllabusTab({ syllabus, isLoading, error, refetch }: any) {
               </div>
             </div>
             <DownloadButton
-              fileUrl={item.fileUrl}
+              filePath={item.filePath ?? item.fileUrl}
               fileName={item.fileName}
               fileSize={item.fileSize}
             />
@@ -325,7 +325,7 @@ function QuestionPapersTab({ questionPapers, isLoading, error, refetch }: any) {
                       </div>
                     </div>
                     <DownloadButton
-                      fileUrl={item.fileUrl}
+                      filePath={item.filePath ?? item.fileUrl}
                       fileName={item.fileName}
                       fileSize={item.fileSize}
                     />
@@ -396,7 +396,7 @@ function NotesTab({ notes, isLoading, error, refetch }: any) {
                     </div>
                   </div>
                   <DownloadButton
-                    fileUrl={item.fileUrl}
+                    filePath={item.filePath ?? item.fileUrl}
                     fileName={item.fileName}
                     fileSize={item.fileSize}
                   />

@@ -55,7 +55,8 @@ export interface Syllabus {
   title: string;
   description?: string;
   fileName: string;
-  fileUrl: string;
+  filePath?: string;
+  fileUrl?: string;
   fileSize?: number;
   subjectId: string;
   subject?: Subject;
@@ -71,7 +72,8 @@ export interface QuestionPaper {
   month?: string;
   examType?: string;
   fileName: string;
-  fileUrl: string;
+  filePath?: string;
+  fileUrl?: string;
   fileSize?: number;
   subjectId: string;
   subject?: Subject;
@@ -86,7 +88,8 @@ export interface Note {
   unit?: number;
   topic?: string;
   fileName: string;
-  fileUrl: string;
+  filePath?: string;
+  fileUrl?: string;
   fileSize?: number;
   subjectId: string;
   subject?: Subject;

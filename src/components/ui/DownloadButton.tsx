@@ -2,9 +2,11 @@ import React from "react";
 import { Download, Eye, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { formatFileSize } from "@/lib/format";
+import { getFileUrl } from "@/lib/file-url";
 
 interface DownloadButtonProps {
-  fileUrl?: string;
+  filePath?: unknown;
+  fileUrl?: unknown;
   fileName?: string;
   fileSize?: number;
   variant?: "primary" | "outline";
@@ -13,6 +15,7 @@ interface DownloadButtonProps {
 }
 
 export function DownloadButton({
+  filePath,
   fileUrl,
   fileName = "download",
   fileSize,
@@ -20,33 +23,28 @@ export function DownloadButton({
   fullWidth = false,
   className,
 }: DownloadButtonProps) {
+  const resolvedUrl = getFileUrl(filePath ?? fileUrl);
+
   const handleView = () => {
-    if (!fileUrl) {
+    if (!resolvedUrl) {
       alert("File URL not available. Please try again later.");
       return;
     }
     try {
-      const url = fileUrl.startsWith("http")
-        ? fileUrl
-        : `${window.location.origin}${fileUrl}`;
-      window.open(url, "_blank", "noopener,noreferrer");
+      window.open(resolvedUrl, "_blank", "noopener,noreferrer");
     } catch (error) {
       console.error("View error:", error);
     }
   };
 
   const handleDownload = async () => {
-    if (!fileUrl) {
+    if (!resolvedUrl) {
       alert("File URL not available. Please try again later.");
       return;
     }
     try {
-      const url = fileUrl.startsWith("http")
-        ? fileUrl
-        : `${window.location.origin}${fileUrl}`;
-
       // Fetch the file
-      const response = await fetch(url);
+      const response = await fetch(resolvedUrl);
       if (!response.ok) {
         throw new Error("Download failed");
       }
@@ -66,10 +64,9 @@ export function DownloadButton({
     } catch (error) {
       console.error("Download error:", error);
       // Fallback: try to open in new tab if fetch fails
-      const url = fileUrl.startsWith("http")
-        ? fileUrl
-        : `${window.location.origin}${fileUrl}`;
-      window.open(url, "_blank", "noopener,noreferrer");
+      if (resolvedUrl) {
+        window.open(resolvedUrl, "_blank", "noopener,noreferrer");
+      }
     }
   };
 
@@ -79,8 +76,8 @@ export function DownloadButton({
     outline: "border-2 border-primary-600 text-primary-600 hover:bg-primary-50",
   };
 
-  // If no fileUrl, show a disabled state with error message
-  if (!fileUrl) {
+  // If no resolvedUrl, show a disabled state with error message
+  if (!resolvedUrl) {
     return (
       <div className="flex gap-2 flex-col sm:flex-row">
         <button
@@ -114,18 +111,20 @@ export function DownloadButton({
   return (
     <div className="flex gap-2 flex-col sm:flex-row">
       {/* View Button */}
-      <button
-        onClick={handleView}
+      <a
+        href={resolvedUrl}
+        target="_blank"
+        rel="noreferrer"
         className={cn(
           "inline-flex items-center justify-center gap-2 px-4 py-2.5 font-medium rounded-lg transition-all duration-200 min-h-touch active:scale-95",
           "bg-slate-100 text-slate-700 hover:bg-slate-200 shadow-sm hover:shadow-md",
-          className
+          className,
         )}
         title="View PDF"
       >
         <Eye size={18} />
         <span className="text-sm font-medium">View</span>
-      </button>
+      </a>
 
       {/* Download Button */}
       <button
@@ -134,7 +133,7 @@ export function DownloadButton({
           "inline-flex items-center justify-center gap-2 px-5 py-2.5 font-medium rounded-lg transition-all duration-200 min-h-touch active:scale-95",
           variants[variant],
           fullWidth && "w-full",
-          className
+          className,
         )}
         title="Download file"
       >
