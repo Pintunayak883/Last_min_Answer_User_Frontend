@@ -9,6 +9,7 @@ export function getFileUrl(filePath: unknown): string | null {
 
   const apiBase =
     process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000/api";
+
   const serverBase = apiBase.replace(/\/?api\/?$/i, "").replace(/\/$/, "");
 
   const normalized = trimmed.replace(/\\/g, "/");

@@ -10,8 +10,8 @@ import type {
 } from "@/types/entities";
 import type { ApiResponse, PaginatedResponse } from "@/types/api";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "/api";
-
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "/api";
+console.log("Api base url", API_BASE_URL);
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
